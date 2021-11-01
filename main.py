@@ -11,7 +11,7 @@ class UserInterface:
         # Window
         pg.init()
         self.width = 1280
-        self.height = int(self.width * 9 / 16)  # 720
+        self.height = 736
         self.window = pg.display.set_mode((self.width, self.height))
         self.window_caption = "Twin Shooter"
 

@@ -2,8 +2,7 @@ from .Command import Command
 
 
 class TargetCommand(Command):
-    def __init__(self, state, unit, target):
-        self.state = state
+    def __init__(self, unit, target):
         self.unit = unit
         self.target = target
 

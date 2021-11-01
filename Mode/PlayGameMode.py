@@ -11,11 +11,10 @@ class PlayGameMode:
     def __init__(self, ui):
         self.ui = ui
         self.game_state = GameState()
-        self.cell_size = Vector2(32, 32)
         self.actions = {"left": False, "right": False, "up": False, "down": False}
         self.commands = []
-        self.layers = [WallLayer(self.cell_size, pg.image.load("Assets/Wall.png")),
-                       UnitsLayer(self.cell_size, pg.image.load("Assets/Player_Circle.png"),
+        self.layers = [WallLayer(self.game_state.cell_size, pg.image.load("Assets/Wall.png")),
+                       UnitsLayer(self.game_state.cell_size, pg.image.load("Assets/Player_Circle.png"),
                                   self.game_state, self.game_state.unit)]
 
     def process_input(self):
@@ -37,13 +36,13 @@ class PlayGameMode:
                 (self.actions["right"] and self.actions["up"]) or
                 (self.actions["right"] and self.actions["down"])):
             move_vector *= .7071  # 1 / sqrt 2 to normalize vector
-        self.commands.append(MoveCommand(self, self.game_state.player_unit, move_vector))
+        self.commands.append(MoveCommand(self.game_state, self.ui, self.game_state.player_unit, move_vector))
 
         mouse_position = pg.mouse.get_pos()
         target = Vector2()
         target.x = mouse_position[0]
         target.y = mouse_position[1]
-        self.commands.append(TargetCommand(self.game_state, self.game_state.player_unit, target))
+        self.commands.append(TargetCommand(self.game_state.player_unit, target))
 
     def update(self):
         for command in self.commands:
@@ -51,7 +50,7 @@ class PlayGameMode:
         self.commands.clear()
 
     def render(self, window):
-        self.ui.window.fill((0, 0, 0))
+        window.fill((0, 0, 0))
         for layer in self.layers:
             layer.render(window)
 
