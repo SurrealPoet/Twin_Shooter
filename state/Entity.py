@@ -1,7 +1,7 @@
 from pygame.math import Vector2
 
 
-class GameItem:
+class Entity:
     def __init__(self, state, position, tile):
         self.state = state
         self.status = "alive"

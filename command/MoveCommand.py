@@ -1,4 +1,4 @@
-from .Command import Command
+from command.Command import Command
 
 
 class MoveCommand(Command):
@@ -20,14 +20,14 @@ class MoveCommand(Command):
         self.unit.position = self.unit.real_position
 
     def inside_world(self, position):
-        return 0 <= position.x <= self.ui.width - 32 and 0 <= position.y <= self.ui.height - 32
+        return 0 <= position.x <= self.ui.world_width - 32 and 0 <= position.y <= self.ui.world_height - 32
 
     def reposition_unit_to_be_inside_world(self):
         if self.unit.real_position.x < 0:
             self.unit.real_position.x = 0
-        if self.unit.real_position.x > self.ui.width - self.state.cell_size.x:
-            self.unit.real_position.x = self.ui.width - self.state.cell_size.x
+        if self.unit.real_position.x > self.ui.world_width - self.state.cell_size.x:
+            self.unit.real_position.x = self.ui.world_width - self.state.cell_size.x
         if self.unit.real_position.y < 0:
             self.unit.real_position.y = 0
-        if self.unit.real_position.y > self.ui.height - self.state.cell_size.y:
-            self.unit.real_position.y = self.ui.height - self.state.cell_size.y
+        if self.unit.real_position.y > self.ui.world_height - self.state.cell_size.y:
+            self.unit.real_position.y = self.ui.world_height - self.state.cell_size.y

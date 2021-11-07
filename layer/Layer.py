@@ -1,4 +1,4 @@
-import pygame as pg
+import pygame
 
 from pygame.math import Vector2
 
@@ -12,9 +12,9 @@ class Layer:
         if angle is None:
             tile.blit(window, position)
         else:
-            texture_tile = pg.Surface(self.cell_size, pg.SRCALPHA)
+            texture_tile = pygame.Surface(self.cell_size, pygame.SRCALPHA)
             texture_tile.blit(tile, (0, 0))
-            rotated_tile = pg.transform.rotate(texture_tile, angle)
+            rotated_tile = pygame.transform.rotate(texture_tile, angle)
             rotated_tile_left_corner = Vector2(0, 0)
             rotated_tile_left_corner.x = position.x - (rotated_tile.get_width() - texture_tile.get_width()) // 2
             rotated_tile_left_corner.y = position.y - (rotated_tile.get_height() - texture_tile.get_height()) // 2

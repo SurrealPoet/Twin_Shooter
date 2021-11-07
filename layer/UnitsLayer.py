@@ -1,12 +1,11 @@
 from math import atan2, pi
 
-from .Layer import Layer
+from layer.Layer import Layer
 
 
 class UnitsLayer(Layer):
-    def __init__(self, cell_size, image_file, game_state, units):
+    def __init__(self, cell_size, image_file, units):
         super().__init__(cell_size, image_file)
-        self.game_state = game_state
         self.units = units
 
     def render(self, window):

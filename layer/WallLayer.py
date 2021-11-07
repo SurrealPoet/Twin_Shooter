@@ -1,6 +1,5 @@
-import pygame as pg
 from pygame.math import Vector2
-from .Layer import Layer
+from layer.Layer import Layer
 
 
 class WallLayer(Layer):

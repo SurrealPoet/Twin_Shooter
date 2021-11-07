@@ -1,9 +1,9 @@
 from pygame.math import Vector2
 
-from .GameItem import GameItem
+from state.Entity import Entity
 
 
-class Unit(GameItem):
+class Unit(Entity):
     def __init__(self, state, position, tile):
         super().__init__(state, position, tile)
         self.move_speed = 360
