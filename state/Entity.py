@@ -10,3 +10,4 @@ class Entity:
         self.velocity = Vector2()
         self.move_speed = 0
         self.tile = tile
+        self.is_solid = False

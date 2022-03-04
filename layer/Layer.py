@@ -10,7 +10,7 @@ class Layer:
 
     def render_tile(self, window, position, tile, angle=None):
         if angle is None:
-            tile.blit(window, position)
+            window.blit(tile, position)
         else:
             texture_tile = pygame.Surface(self.cell_size, pygame.SRCALPHA)
             texture_tile.blit(tile, (0, 0))

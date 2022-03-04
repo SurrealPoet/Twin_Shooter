@@ -13,7 +13,8 @@ class PlayGameMode:
         self.game_state = GameState()
         self.actions = {"left": False, "right": False, "up": False, "down": False}
         self.commands = []
-        self.layers = [WallLayer(self.game_state.cell_size, pygame.image.load("assets/Wall.png")),
+        self.layers = [WallLayer(self.game_state.cell_size, pygame.image.load("assets/Wall.png"),
+                                 self.game_state.walls),
                        UnitsLayer(self.game_state.cell_size, pygame.image.load("assets/Player_Circle.png"),
                                   self.game_state.unit)]
 
