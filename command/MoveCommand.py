@@ -1,4 +1,5 @@
 from command.Command import Command
+import pygame
 
 
 class MoveCommand(Command):
@@ -16,6 +17,13 @@ class MoveCommand(Command):
             self.reposition_unit_to_be_inside_world()
 
         # Check for unit collisions and reposition
+
+        # offset = self.unit.rect.topleft[0] - self.state.test.rect.topleft[0], \
+        #          self.unit.rect.topleft[1] - self.state.test.rect.topleft[1]
+        # mask_test = self.unit.mask.overlap(self.state.test.mask, offset)
+        if self.unit.rect.collidelistall(self.state.walls):
+            print("Colliding with:", self.unit.rect.collidelistall(self.state.walls))
+            # print(mask_test)
 
         self.unit.position = self.unit.real_position
 

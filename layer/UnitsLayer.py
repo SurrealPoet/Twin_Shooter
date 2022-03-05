@@ -12,4 +12,4 @@ class UnitsLayer(Layer):
         for unit in self.units:
             distance_to_target = (unit.position + self.cell_size // 2) - unit.weapon_target
             angle = atan2(distance_to_target.x, distance_to_target.y) * 180 / pi
-            self.render_tile(window, unit.position, unit.tile, angle)
+            unit.rect = self.render_tile(window, unit.position, unit.tile, angle)

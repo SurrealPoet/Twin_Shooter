@@ -8,4 +8,4 @@ class WallLayer(Layer):
 
     def render(self, window):
         for wall in self.walls:
-            self.render_tile(window, wall.position, wall.tile)
+            wall.rect = self.render_tile(window, wall.position, wall.tile)
